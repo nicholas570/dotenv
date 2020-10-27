@@ -1,15 +1,16 @@
 const http = require('http');
 require('dotenv').config();
 
-const port = process.env.PORT;
-const host = process.env.HOST;
-const name = process.env.NAME;
+const port = process.env.PORT || 3000;
+const name = process.env.MY_NAME;
+const city = process.env.MY_CITY;
+const language = process.env.MY_LANGUAGE;
 
 const server = http.createServer((req, res) => {
   res.statusCode(200);
   res.setHeader('Content-Type', 'application/json');
 });
 
-server.listen(port, host, name, () => {
-  console.log(`Hello ${name}, server listening on http//${host}:${port}`);
+server.listen(() => {
+  console.log(`I am ${name}, wilder in ${city}, and I love ${language}`);
 });
